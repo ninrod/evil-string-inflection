@@ -3,14 +3,14 @@
 (require 'evil-test-helpers)
 (require 'snakecamelfy)
 
-(ert-deftest evil-textobj-xml-attr-test ()
+(ert-deftest snakecamelfy-evil-operator-test ()
   (ert-info ("basic evil move test")
     (evil-test-buffer
-      "CamelCase"
+      "A"
       ("g~iw")
-      "camel_case"))
+      "A"))
   (ert-info ("basic text")
     (evil-test-buffer
-      "camel_case"
+      "AB"
       ("g~iw")
-      "CamelCase")))
+      "A_B")))
