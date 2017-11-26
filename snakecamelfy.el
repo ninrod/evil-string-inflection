@@ -53,11 +53,8 @@
           (t
            nil))))
 
-;;; Connect to Evil machinery
-
-(evil-define-operator evil-operator-snakecamelfy (beg end type)
-  :move-point nil
-  (interactive "<R>")
+(defun snakecamelfy--snakefy (beg end)
+  (interactive)
   (let ((finish end))
     (save-excursion
       (goto-char beg)
@@ -65,6 +62,13 @@
         (cond ((snakecamelfy--upper-letter-to-snake (not (= (point) beg)))
                (setq finish (1+ finish))))
         (forward-char)))))
+
+;;; Connect to Evil machinery
+
+(evil-define-operator evil-operator-snakecamelfy (beg end type)
+  :move-point nil
+  (interactive "<R>")
+  (snakecamelfy--snakefy beg end))
 
 (define-key evil-normal-state-map snakecamelfy-key 'evil-operator-snakecamelfy)
 
