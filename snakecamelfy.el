@@ -52,6 +52,10 @@
   ;; https://stackoverflow.com/questions/2129840/check-if-a-string-is-all-caps-in-emacs-lisp
   (snakecamelfy--has-pattern beg end "\\`[A-Z]*\\'"))
 
+(defun snakecamelfy--is-snakecased (beg end)
+  "Verify if string between BEG and END is in snakecase form."
+  (snakecamelfy--has-pattern beg end "_"))
+
 ;;; snakefy core functions
 
 (defun snakecamelfy--upper-letter-to-snake (&optional underscore)
