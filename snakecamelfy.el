@@ -43,9 +43,14 @@
 ;;; common functions
 
 (defun snakecamelfy--has-pattern (beg end pattern)
-  "verify if string from BEG to END has an underscore."
+  "Verify if string from BEG to END has an underscore."
   (let ((str (buffer-substring-no-properties beg end)))
     (string-match-p pattern str)))
+
+(defun snakecamelfy--is-camelcased (beg end)
+  "Verify if string between BEG and END is in camelcase form."
+  ;; https://stackoverflow.com/questions/2129840/check-if-a-string-is-all-caps-in-emacs-lisp
+  (snakecamelfy--has-pattern beg end "\\`[A-Z]*\\'"))
 
 ;;; snakefy core functions
 
@@ -78,8 +83,7 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
   "Define a new evil operator that toggles snake to camel and vice-versa."
   :move-point nil
   (interactive "<R>")
-  ;; https://stackoverflow.com/questions/2129840/check-if-a-string-is-all-caps-in-emacs-lisp
-  (cond ((snakecamelfy--has-pattern beg end "\\`[A-Z]*\\'")
+  (cond ((snakecamelfy--is-camelcased beg end)
          (snakecamelfy--snakefy beg end))
         (t
          nil)))
