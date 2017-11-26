@@ -85,7 +85,14 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
 
 (defun snakecamelfy--camelfy (beg end)
   "Camelfy from BEG to END."
-  (message "snakecased. now I'm going to camelfy"))
+  (let ((finish end))
+    (save-excursion
+      (goto-char (1+ beg))
+      (while (< (point) finish)
+        (cond ((looking-at "_")
+               (delete-char 1)
+               (setq finish (1- finish))))
+        (forward-char)))))
 
 ;;; Connect to Evil machinery
 
