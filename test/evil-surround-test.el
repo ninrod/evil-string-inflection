@@ -3,7 +3,7 @@
 (require 'evil-test-helpers)
 (require 'snakecamelfy)
 
-(ert-deftest snakecamelfy-evil-operator-test ()
+(ert-deftest snakecamelfy-camel-to-snake-test ()
   (ert-info ("basic evil move test")
     (evil-test-buffer
       "[A]B"
@@ -33,4 +33,9 @@
     (evil-test-buffer
       "CamelCase"
       ("g~iw")
-      "camel_case")))
+      "camel_case"))
+  (ert-info ("random pattern")
+    (evil-test-buffer
+      "ABcdeF"
+      ("g~iw")
+      "a_bcde_f")))
