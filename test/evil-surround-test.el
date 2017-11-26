@@ -28,4 +28,9 @@
     (evil-test-buffer
       "Camel"
       ("g~iw")
-      "camel")))
+      "camel"))
+  (ert-info ("CamelCase word")
+    (evil-test-buffer
+      "CamelCase"
+      ("g~iw")
+      "camel_case")))
