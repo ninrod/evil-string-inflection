@@ -92,7 +92,7 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
   "Camelfy from BEG to END."
   (let ((finish end))
     (save-excursion
-
+      (snakecamelfy--upcasify-point)
       (goto-char (1+ beg))
       (while (< (point) finish)
         (cond ((looking-at "_")
