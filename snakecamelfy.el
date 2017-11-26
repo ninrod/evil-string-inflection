@@ -48,13 +48,12 @@
            (evil-invert-case (point) (1+ (point)))
            (when underscore
              (save-excursion
-               (forward-char)
                (insert "_")
                1)))
           (t
            nil))))
 
-;; ABC
+;; ab
 
 ;;; Connect to Evil machinery
 
@@ -65,7 +64,7 @@
     (save-excursion
       (goto-char beg)
       (while (< (point) finish)
-        (let ((underscore (not (= (point) (1- finish)))))
+        (let ((underscore (not (= (point) beg))))
           (cond ((snakecamelfy--upper-letter-to-snake underscore)
                  (setq finish (1+ finish)))))
         (forward-char)))))
