@@ -12,7 +12,6 @@
   (interactive)
   (princ (point)))
 
-
 (defun test/is_upper ()
   (interactive)
   (let ((case-fold-search nil))
