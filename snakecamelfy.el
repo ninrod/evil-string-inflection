@@ -42,23 +42,30 @@
 
 ;;; Core functions
 
-(defun snakecamellfy--upper-letter-to-snake ()
+(defun snakecamelfy--upper-letter-to-snake ()
   (let ((case-fold-search nil))
     (cond ((looking-at "[[:upper:]]")
            (save-excursion
              (forward-char)
-             (insert "_")))
+             (insert "_")
+             1))
           (t
            nil))))
 
-;; A_B_cd
+;; ABCDEFG
 
 ;;; Connect to Evil machinery
 
 (evil-define-operator evil-operator-snakecamelfy (beg end type)
   :move-point nil
   (interactive "<R>")
-  (message (concat "beg: " (number-to-string beg) ", end: " (number-to-string end))))
+  (let ((finish end))
+    (save-excursion
+      (goto-char beg)
+      (while (< (point) (1- finish))
+        (when (snakecamelfy--upper-letter-to-snake)
+          (setq finish (1+ finish)))
+        (forward-char)))))
 
 (define-key evil-normal-state-map snakecamelfy-key 'evil-operator-snakecamelfy)
 
