@@ -1,11 +1,11 @@
-;;; snakecamelfy.el --- Evil operator to transform CamelCase words into snake_case and vice-versa -*- lexical-binding: t -*-
+;;; snakecamelfy.el --- toggle CamelCase to snake_case and vice-versa -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2015 by Filipe Silva (ninrod)
 
 ;; Author: Filipe Silva <filipe.silva@gmail.com>
 ;; URL: https://github.com/ninrod/snakecamelfy
 ;; Version: 0.0.1
-;; Package-Requires: ((evil "1.2.13"))
+;; Package-Requires: ((evil "1.2.13") (emacs "24"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@
 ;;; common functions
 
 (defun snakecamelfy--has-pattern (beg end pattern)
-  "Verify if string from BEG to END has an underscore."
+  "In string from BEG to END match PATTERN."
   (let ((str (buffer-substring-no-properties beg end)))
     (string-match-p pattern str)))
 
@@ -92,6 +92,7 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
   "Camelfy from BEG to END."
   (let ((finish end))
     (save-excursion
+      (goto-char beg)
       (snakecamelfy--upcasify-point)
       (goto-char (1+ beg))
       (while (< (point) finish)
