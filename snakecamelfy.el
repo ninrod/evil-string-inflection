@@ -42,19 +42,13 @@
 
 ;;; Core functions
 
-(defun test/is_upper ()
-  (interactive)
-  (let ((case-fold-search nil))
-    (cond ((looking-at "[[:upper:]]")
-           (save-excursion
-             (forward-char)
-             (insert "_")))
-          (t
-           (message "it is NOT upper")))))
 
-(defun test/bounds ()
-  (interactive)
-  (princ (bounds-of-thing-at-point 'word)))
+(evil-define-operator evil-operator-snakecamelfy (beg end type)
+  :move-point nil
+  (interactive "<R>")
+  (message (concat "beg: " (number-to-string beg) ", end: " (number-to-string end))))
+
+(define-key evil-normal-state-map snakecamelfy-key 'evil-operator-snakecamelfy)
 
 ;; A_B_cd
 
