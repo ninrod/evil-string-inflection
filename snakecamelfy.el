@@ -40,7 +40,14 @@
   :type 'string
   :group 'snakecamelfy)
 
-;;; Core functions
+;;; common functions
+
+(defun snakecamelfy--has-pattern (beg end pattern)
+  "verify if string from BEG to END has an underscore."
+  (let ((str (buffer-substring-no-properties beg end)))
+    (string-match-p pattern str)))
+
+;;; snakefy core functions
 
 (defun snakecamelfy--upper-letter-to-snake (&optional underscore)
   "Invert case and apply underscore if applicable.
@@ -71,7 +78,11 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
   "Define a new evil operator that toggles snake to camel and vice-versa."
   :move-point nil
   (interactive "<R>")
-  (snakecamelfy--snakefy beg end))
+  ;; https://stackoverflow.com/questions/2129840/check-if-a-string-is-all-caps-in-emacs-lisp
+  (cond ((snakecamelfy--has-pattern beg end "\\`[A-Z]*\\'")
+         (snakecamelfy--snakefy beg end))
+        (t
+         nil)))
 
 (define-key evil-normal-state-map snakecamelfy-key 'evil-operator-snakecamelfy)
 
