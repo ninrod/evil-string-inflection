@@ -1,0 +1,30 @@
+* snakecamelfy.el: evil operator to transform CamelCase words into snake_case
+
+# [[https://travis-ci.org/ninrod/exato.svg?branch=master][https://travis-ci.org/ninrod/exato.svg?branch=master]]
+# [[https://melpa.org/#/exato][file:https://melpa.org/packages/exato-badge.svg]]
+# [[https://www.gnu.org/licenses/gpl-3.0.en.html][https://img.shields.io/badge/license-GPLv3-blue.svg]]
+# [[https://www.w3schools.in/wp-content/uploads/2014/07/HTML-attribute.jpg][https://www.w3schools.in/wp-content/uploads/2014/07/HTML-attribute.jpg]]
+
+* Installation
+
+# Just use [[https://melpa.org][MELPA]]. Here's an oneliner using [[https://github.com/jwiegley/use-package][use-package]]:
+
+# #+BEGIN_SRC emacs-lisp
+#   (use-package exato :ensure t)
+# #+END_SRC
+
+* Usage
+
+This package provides the =g~= operator to transform CamelCase words into snake_case.
+You can customize the binding.
+
+Try using =g~iw=.
+
+* LICENSE
+
+- [[https://www.gnu.org/licenses/gpl-3.0.en.html][GNU General Public License v3]]
+#+BEGIN_SRC text
+GNU General Public License v3
+Copyright (c) 2017 Filipe Silva (ninrod)
+#+END_SRC
+
