@@ -24,6 +24,13 @@ You can customize the binding.
 
 Try using =g~iw=.
 
+* Customization
+
+- you can customize =snakecamelfy='s binding as follows:
+
+#+BEGIN_SRC emacs-lisp
+  (setq snakecamelfy-key (kbd "zx"))
+#+END_SRC
 * LICENSE
 
 - [[https://www.gnu.org/licenses/gpl-3.0.en.html][GNU General Public License v3]]
