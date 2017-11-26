@@ -32,8 +32,14 @@ Try using =g~iw=.
 Camel[C]aseWord
 -> g~iW
 camel_case_word
--> .
+-> g~iW
 CamelCaseWord
+
+snake_case_word
+-> g~iW
+SnakeCaseWord
+-> . (this is the dot operator, which repeats last operation)
+snake_case_word
 #+END_SRC
 
 * Customization
