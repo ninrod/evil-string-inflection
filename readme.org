@@ -24,6 +24,18 @@ You can customize the binding.
 
 Try using =g~iw=.
 
+* Examples
+
+- cursor is on =[]=
+
+#+BEGIN_SRC text
+Camel[C]aseWord
+-> g~iW
+camel_case_word
+-> .
+CamelCaseWord
+#+END_SRC
+
 * Customization
 
 - you can customize =snakecamelfy='s binding as follows:
