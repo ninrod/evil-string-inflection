@@ -53,8 +53,6 @@
           (t
            nil))))
 
-;; 
-
 ;;; Connect to Evil machinery
 
 (evil-define-operator evil-operator-snakecamelfy (beg end type)
@@ -64,9 +62,8 @@
     (save-excursion
       (goto-char beg)
       (while (< (point) finish)
-        (let ((underscore (not (= (point) beg))))
-          (cond ((snakecamelfy--upper-letter-to-snake underscore)
-                 (setq finish (1+ finish)))))
+        (cond ((snakecamelfy--upper-letter-to-snake (not (= (point) beg)))
+               (setq finish (1+ finish))))
         (forward-char)))))
 
 (define-key evil-normal-state-map snakecamelfy-key 'evil-operator-snakecamelfy)
