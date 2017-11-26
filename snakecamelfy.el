@@ -54,7 +54,7 @@
           (t
            nil))))
 
-;; a_b_c_d_e_f_g
+;; ABC
 
 ;;; Connect to Evil machinery
 
