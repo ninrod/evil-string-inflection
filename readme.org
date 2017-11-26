@@ -1,10 +1,11 @@
 * snakecamelfy
 
+[[https://www.gnu.org/licenses/gpl-3.0.en.html][https://img.shields.io/badge/license-GPLv3-blue.svg]]
+
 - evil operator to transform CamelCase words into snake_case
 
 # [[https://travis-ci.org/ninrod/exato.svg?branch=master][https://travis-ci.org/ninrod/exato.svg?branch=master]]
 # [[https://melpa.org/#/exato][file:https://melpa.org/packages/exato-badge.svg]]
-[[https://www.gnu.org/licenses/gpl-3.0.en.html][https://img.shields.io/badge/license-GPLv3-blue.svg]]
 
 * Installation
 
