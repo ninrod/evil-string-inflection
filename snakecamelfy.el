@@ -81,7 +81,7 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
                (setq finish (1+ finish))))
         (forward-char)))))
 
-;;; camefy core functions
+;;; camelfy core functions
 
 (defun snakecamelfy--upcasify-point ()
   "Upcasify point, if applicable."
@@ -94,7 +94,7 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
     (save-excursion
       (goto-char beg)
       (snakecamelfy--upcasify-point)
-      (goto-char (1+ beg))
+      (forward-char)
       (while (< (point) finish)
         (cond ((looking-at "_")
                (delete-char 1)

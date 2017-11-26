@@ -39,3 +39,35 @@
       "ABcdeF"
       ("g~iw")
       "a_bcde_f")))
+
+(ert-deftest snakecamelfy-snake-to-camel-test ()
+  (ert-info ("2 letters")
+    (evil-test-buffer
+      "a_b"
+      ("g~iW")
+      "AB"))
+  (ert-info ("huge letter, all caps")
+    (evil-test-buffer
+      "a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z"
+      ("g~iW")
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+  (ert-info ("single word, 2 letter, camelcase")
+    (evil-test-buffer
+      "ab"
+      ("g~iW")
+      "ab"))
+  (ert-info ("Camel word")
+    (evil-test-buffer
+      "camel"
+      ("g~iW")
+      "camel"))
+  (ert-info ("CamelCase word")
+    (evil-test-buffer
+      "camel_case"
+      ("g~iW")
+      "CamelCase"))
+  (ert-info ("random pattern")
+    (evil-test-buffer
+      "a_bcde_f"
+      ("g~iW")
+      "ABcdeF")))
