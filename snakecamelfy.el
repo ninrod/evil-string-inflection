@@ -31,7 +31,7 @@
 (require 'evil)
 
 (defgroup snakecamelfy nil
-  "Provides a toggle operator to transform CamelCase words to snake_case and vice-versa."
+  "Provide a toggle operator to transform CamelCase words to snake_case and vice-versa."
   :group 'snakecamelfy
   :prefix 'snakecamelfy-)
 
@@ -43,6 +43,8 @@
 ;;; Core functions
 
 (defun snakecamelfy--upper-letter-to-snake (&optional underscore)
+  "Invert case and apply underscore if applicable.
+If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not insert underscore."
   (let ((case-fold-search nil))
     (cond ((looking-at "[[:upper:]]")
            (evil-invert-case (point) (1+ (point)))
@@ -54,7 +56,7 @@
            nil))))
 
 (defun snakecamelfy--snakefy (beg end)
-  (interactive)
+  "Snakefy string from BEG to END."
   (let ((finish end))
     (save-excursion
       (goto-char beg)
@@ -66,6 +68,7 @@
 ;;; Connect to Evil machinery
 
 (evil-define-operator evil-operator-snakecamelfy (beg end type)
+  "Define a new evil operator that toggles snake to camel and vice-versa."
   :move-point nil
   (interactive "<R>")
   (snakecamelfy--snakefy beg end))
