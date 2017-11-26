@@ -81,6 +81,12 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
                (setq finish (1+ finish))))
         (forward-char)))))
 
+;;; camefy core functions
+
+(defun snakecamelfy--camelfy (beg end)
+  "Camelfy from BEG to END."
+  (message "snakecased. now I'm going to camelfy"))
+
 ;;; Connect to Evil machinery
 
 (evil-define-operator evil-operator-snakecamelfy (beg end type)
@@ -89,6 +95,8 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
   (interactive "<R>")
   (cond ((snakecamelfy--is-camelcased beg end)
          (snakecamelfy--snakefy beg end))
+        ((snakecamelfy--is-snakecased beg end)
+         (snakecamelfy--camelfy beg end))
         (t
          nil)))
 
