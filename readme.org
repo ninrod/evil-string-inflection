@@ -35,7 +35,7 @@ camel_case_word
 -> g~iW
 CamelCaseWord
 
-snake_case_word
+snake_[c]ase_word
 -> g~iW
 SnakeCaseWord
 -> . (this is the dot operator, which repeats last operation)
