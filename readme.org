@@ -1,7 +1,7 @@
 * snakecamelfy
 
 [[https://www.gnu.org/licenses/gpl-3.0.en.html][https://img.shields.io/badge/license-GPLv3-blue.svg]]
-[[https://travis-ci.org/ninrod/replace-with-char.svg?branch=master][https://travis-ci.org/ninrod/replace-with-char.svg?branch=master]]
+[[https://travis-ci.org/ninrod/snakecamelfy.svg?branch=master][https://travis-ci.org/ninrod/snakecamelfy.svg?branch=master]]
 
 [[https://image.slidesharecdn.com/theneverendingrestapidesigndebate-devoxx2015-151121085802-lva1-app6892/95/the-neverending-rest-api-design-debate-18-638.jpg?cb=1448097446][https://image.slidesharecdn.com/theneverendingrestapidesigndebate-devoxx2015-151121085802-lva1-app6892/95/the-neverending-rest-api-design-debate-18-638.jpg?cb=1448097446]]
 
