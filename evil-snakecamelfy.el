@@ -5,7 +5,7 @@
 ;; Author: Filipe Silva <filipe.silva@gmail.com>
 ;; URL: https://github.com/ninrod/evil-snakecamelfy
 ;; Version: 0.0.1
-;; Package-Requires: ((evil "1.2.13") (emacs "24"))
+;; Package-Requires: ((emacs "24") (evil "1.2.13") (string-inflection "1.0.6"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -29,6 +29,7 @@
 ;;; Settings:
 
 (require 'evil)
+(require 'string-inflection)
 
 (defgroup evil-snakecamelfy nil
   "Provide a toggle operator to transform CamelCase words to snake_case and vice-versa."
