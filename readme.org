@@ -1,20 +1,22 @@
-* evil-snakecamelfy
+* evil-string-inflection
 
-[[https://travis-ci.org/ninrod/evil-snakecamelfy.svg?branch=master][https://travis-ci.org/ninrod/evil-snakecamelfy.svg?branch=master]]
+[[https://travis-ci.org/ninrod/evil-string-inflection.svg?branch=master][https://travis-ci.org/ninrod/evil-string-inflection.svg?branch=master]]
 [[https://www.gnu.org/licenses/gpl-3.0.en.html][https://img.shields.io/badge/license-GPLv3-blue.svg]]
 
 [[https://image.slidesharecdn.com/theneverendingrestapidesigndebate-devoxx2015-151121085802-lva1-app6892/95/the-neverending-rest-api-design-debate-18-638.jpg?cb=1448097446][https://image.slidesharecdn.com/theneverendingrestapidesigndebate-devoxx2015-151121085802-lva1-app6892/95/the-neverending-rest-api-design-debate-18-638.jpg?cb=1448097446]]
 
-evil operator to transform CamelCase words into snake_case
+Evil operator to cycle text objects through camelCase, kebab-case, snake_case and UPPER_CASE.
+
+It wraps the [[https://github.com/akicho8/string-inflection][string-inflection]] package.
 
 * Installation
 
-place the file in your load-path and write ~(require 'evil-snakecamelfy)~ in your =~/.emacs.d/init.el=.
+place the file in your load-path and write ~(require 'evil-string-inflection)~ in your =~/.emacs.d/init.el=.
 
 # Just use [[https://melpa.org][MELPA]]. Here's an oneliner using [[https://github.com/jwiegley/use-package][use-package]]:
 
 # #+BEGIN_SRC emacs-lisp
-#   (use-package exato :ensure t)
+#   (use-package evil-string-inflection :ensure t)
 # #+END_SRC
 
 * Usage
@@ -26,28 +28,28 @@ Try using =g~iw=.
 
 * Examples
 
-- cursor is on =[]=
+- here's a sample cycle. cursor is on =[]=:
 
 #+BEGIN_SRC text
 Camel[C]aseWord
 -> g~iW
+camelCaseWord
+-> .
+camel-case-word
+-> .
 camel_case_word
--> g~iW
+-> .
+CAMEL_CASE_WORD
+-> .
 CamelCaseWord
-
-snake_[c]ase_word
--> g~iW
-SnakeCaseWord
--> . (this is the dot operator, which repeats last operation)
-snake_case_word
 #+END_SRC
 
 * Customization
 
-- you can customize =evil-snakecamelfy='s binding as follows:
+- you can customize =evil-string-inflection='s binding as follows:
 
 #+BEGIN_SRC emacs-lisp
-  ;; it is zx by default
+  ;; it is g~ by default
   (define-key evil-normal-state-map "gR" 'evil-operator-replace-with-char)
 #+END_SRC
 * LICENSE
