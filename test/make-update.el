@@ -8,7 +8,7 @@
 (package-refresh-contents)
 
 (defconst dev-packages
-  '(evil evil-test-helpers))
+  '(evil evil-test-helpers string-inflection))
 
 (dolist (package dev-packages)
   (unless (package-installed-p package)
