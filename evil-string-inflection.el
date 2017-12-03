@@ -29,6 +29,7 @@
 (require 'evil)
 (require 'string-inflection)
 
+;;;###autoload
 (evil-define-operator evil-operator-snakecamelfy (beg end _type)
   "Define a new evil operator that cicles underscore -> UPCASE -> CamelCase."
   :move-point nil
