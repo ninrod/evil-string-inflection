@@ -1,9 +1,9 @@
 (require 'ert)
 (require 'evil)
 (require 'evil-test-helpers)
-(require 'snakecamelfy)
+(require 'evil-snakecamelfy)
 
-(ert-deftest snakecamelfy-camel-to-snake-test ()
+(ert-deftest evil-snakecamelfy-camel-to-snake-test ()
   (ert-info ("basic evil move test")
     (evil-test-buffer
       "[A]B"
@@ -40,7 +40,7 @@
       ("g~iw")
       "a_bcde_f")))
 
-(ert-deftest snakecamelfy-snake-to-camel-test ()
+(ert-deftest evil-snakecamelfy-snake-to-camel-test ()
   (ert-info ("2 letters")
     (evil-test-buffer
       "a_b"

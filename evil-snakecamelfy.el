@@ -1,9 +1,9 @@
-;;; snakecamelfy.el --- toggle CamelCase to snake_case and vice-versa -*- lexical-binding: t -*-
+;;; evil-snakecamelfy.el --- toggle CamelCase to snake_case and vice-versa -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2015 by Filipe Silva (ninrod)
 
 ;; Author: Filipe Silva <filipe.silva@gmail.com>
-;; URL: https://github.com/ninrod/snakecamelfy
+;; URL: https://github.com/ninrod/evil-snakecamelfy
 ;; Version: 0.0.1
 ;; Package-Requires: ((evil "1.2.13") (emacs "24"))
 
@@ -30,35 +30,30 @@
 
 (require 'evil)
 
-(defgroup snakecamelfy nil
+(defgroup evil-snakecamelfy nil
   "Provide a toggle operator to transform CamelCase words to snake_case and vice-versa."
-  :group 'snakecamelfy
-  :prefix 'snakecamelfy-)
-
-(defcustom snakecamelfy-key (kbd "g~")
-  "Key for the snakecamelfy operator."
-  :type 'string
-  :group 'snakecamelfy)
+  :group 'evil-snakecamelfy
+  :prefix 'evil-snakecamelfy-)
 
 ;;; common functions
 
-(defun snakecamelfy--has-pattern (beg end pattern)
+(defun evil-snakecamelfy--has-pattern (beg end pattern)
   "In string from BEG to END match PATTERN."
   (let ((str (buffer-substring-no-properties beg end)))
     (string-match-p pattern str)))
 
-(defun snakecamelfy--is-camelcased (beg end)
+(defun evil-snakecamelfy--is-camelcased (beg end)
   "Verify if string between BEG and END is in camelcase form."
   ;; https://stackoverflow.com/questions/2129840/check-if-a-string-is-all-caps-in-emacs-lisp
-  (snakecamelfy--has-pattern beg end "\\`[A-Z]*\\'"))
+  (evil-snakecamelfy--has-pattern beg end "\\`[A-Z]*\\'"))
 
-(defun snakecamelfy--is-snakecased (beg end)
+(defun evil-snakecamelfy--is-snakecased (beg end)
   "Verify if string between BEG and END is in snakecase form."
-  (snakecamelfy--has-pattern beg end "_"))
+  (evil-snakecamelfy--has-pattern beg end "_"))
 
 ;;; snakefy core functions
 
-(defun snakecamelfy--upper-letter-to-snake (&optional underscore)
+(defun evil-snakecamelfy--upper-letter-to-snake (&optional underscore)
   "Invert case and apply underscore if applicable.
 If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not insert underscore."
   (let ((case-fold-search nil))
@@ -71,52 +66,52 @@ If UNDERSCORE is not nil, applies underscore. If it's nil, then it does not inse
           (t
            nil))))
 
-(defun snakecamelfy--snakefy (beg end)
+(defun evil-snakecamelfy--snakefy (beg end)
   "Snakefy string from BEG to END."
   (let ((finish end))
     (save-excursion
       (goto-char beg)
       (while (< (point) finish)
-        (cond ((snakecamelfy--upper-letter-to-snake (not (= (point) beg)))
+        (cond ((evil-snakecamelfy--upper-letter-to-snake (not (= (point) beg)))
                (setq finish (1+ finish))))
         (forward-char)))))
 
 ;;; camelfy core functions
 
-(defun snakecamelfy--upcasify-point ()
+(defun evil-snakecamelfy--upcasify-point ()
   "Upcasify point, if applicable."
   (when (looking-at "[[:lower:]]")
     (upcase-region (point) (1+ (point)))))
 
-(defun snakecamelfy--camelfy (beg end)
+(defun evil-snakecamelfy--camelfy (beg end)
   "Camelfy from BEG to END."
   (let ((finish end))
     (save-excursion
       (goto-char beg)
-      (snakecamelfy--upcasify-point)
+      (evil-snakecamelfy--upcasify-point)
       (forward-char)
       (while (< (point) finish)
         (cond ((looking-at "_")
                (delete-char 1)
                (setq finish (1- finish))
-               (snakecamelfy--upcasify-point)))
+               (evil-snakecamelfy--upcasify-point)))
         (forward-char)))))
 
 ;;; Connect to Evil machinery
 
-(evil-define-operator evil-operator-snakecamelfy (beg end type)
+(evil-define-operator evil-operator-snakecamelfy (beg end _type)
   "Define a new evil operator that toggles snake to camel and vice-versa."
   :move-point nil
   (interactive "<R>")
-  (cond ((snakecamelfy--is-camelcased beg end)
-         (snakecamelfy--snakefy beg end))
-        ((snakecamelfy--is-snakecased beg end)
-         (snakecamelfy--camelfy beg end))
+  (cond ((evil-snakecamelfy--is-camelcased beg end)
+         (evil-snakecamelfy--snakefy beg end))
+        ((evil-snakecamelfy--is-snakecased beg end)
+         (evil-snakecamelfy--camelfy beg end))
         (t
          nil)))
 
-(define-key evil-normal-state-map snakecamelfy-key 'evil-operator-snakecamelfy)
+(define-key evil-normal-state-map (kbd "g~") 'evil-operator-snakecamelfy)
 
-(provide 'snakecamelfy)
+(provide 'evil-snakecamelfy)
 
-;;; snakecamelfy.el ends here
+;;; evil-snakecamelfy.el ends here

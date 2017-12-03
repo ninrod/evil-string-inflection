@@ -1,6 +1,6 @@
-* snakecamelfy
+* evil-snakecamelfy
 
-[[https://travis-ci.org/ninrod/snakecamelfy.svg?branch=master][https://travis-ci.org/ninrod/snakecamelfy.svg?branch=master]]
+[[https://travis-ci.org/ninrod/evil-snakecamelfy.svg?branch=master][https://travis-ci.org/ninrod/evil-snakecamelfy.svg?branch=master]]
 [[https://www.gnu.org/licenses/gpl-3.0.en.html][https://img.shields.io/badge/license-GPLv3-blue.svg]]
 
 [[https://image.slidesharecdn.com/theneverendingrestapidesigndebate-devoxx2015-151121085802-lva1-app6892/95/the-neverending-rest-api-design-debate-18-638.jpg?cb=1448097446][https://image.slidesharecdn.com/theneverendingrestapidesigndebate-devoxx2015-151121085802-lva1-app6892/95/the-neverending-rest-api-design-debate-18-638.jpg?cb=1448097446]]
@@ -9,7 +9,7 @@ evil operator to transform CamelCase words into snake_case
 
 * Installation
 
-place the file in your load-path and write ~(require 'snakecamelfy)~ in your =~/.emacs.d/init.el=.
+place the file in your load-path and write ~(require 'evil-snakecamelfy)~ in your =~/.emacs.d/init.el=.
 
 # Just use [[https://melpa.org][MELPA]]. Here's an oneliner using [[https://github.com/jwiegley/use-package][use-package]]:
 
@@ -44,10 +44,11 @@ snake_case_word
 
 * Customization
 
-- you can customize =snakecamelfy='s binding as follows:
+- you can customize =evil-snakecamelfy='s binding as follows:
 
 #+BEGIN_SRC emacs-lisp
-  (setq snakecamelfy-key (kbd "zx"))
+  ;; it is zx by default
+  (define-key evil-normal-state-map "gR" 'evil-operator-replace-with-char)
 #+END_SRC
 * LICENSE
 
