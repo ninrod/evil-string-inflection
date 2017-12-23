@@ -1,6 +1,8 @@
 * evil-string-inflection
 
 [[https://travis-ci.org/ninrod/evil-string-inflection.svg?branch=master][https://travis-ci.org/ninrod/evil-string-inflection.svg?branch=master]]
+[[https://melpa.org/#/evil-string-inflection][file:https://melpa.org/packages/evil-string-inflection-badge.svg]]
+[[http://stable.melpa.org/#/string-inflection][file:http://stable.melpa.org/packages/string-inflection-badge.svg]]
 [[https://www.gnu.org/licenses/gpl-3.0.en.html][https://img.shields.io/badge/license-GPLv3-blue.svg]]
 
 [[https://image.slidesharecdn.com/theneverendingrestapidesigndebate-devoxx2015-151121085802-lva1-app6892/95/the-neverending-rest-api-design-debate-18-638.jpg?cb=1448097446][https://image.slidesharecdn.com/theneverendingrestapidesigndebate-devoxx2015-151121085802-lva1-app6892/95/the-neverending-rest-api-design-debate-18-638.jpg?cb=1448097446]]
