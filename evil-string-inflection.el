@@ -1,4 +1,4 @@
-;;; evil-string-inflection.el ---  underscore -> UPCASE -> CamelCase conversion for evil text objects -*- lexical-binding: t -*-
+;;; evil-string-inflection.el --- snake_case -> CamelCase -> etc. for text objects -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2015 by Filipe Silva (ninrod)
 
