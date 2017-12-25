@@ -26,7 +26,7 @@ place the file in your load-path and write ~(require 'evil-string-inflection)~ i
 This package provides the =g~= operator to transform CamelCase words into snake_case.
 You can customize the binding.
 
-Try using =g~iw=.
+Try using =g~io=.
 
 * Examples
 
@@ -34,7 +34,7 @@ Try using =g~iw=.
 
 #+BEGIN_SRC text
 Camel[C]aseWord
--> g~iW
+-> g~io
 camelCaseWord
 -> .
 camel-case-word
@@ -54,6 +54,7 @@ CamelCaseWord
   ;; it is g~ by default
   (define-key evil-normal-state-map "gR" 'evil-operator-replace-with-char)
 #+END_SRC
+
 * LICENSE
 
 - [[https://www.gnu.org/licenses/gpl-3.0.en.html][GNU General Public License v3]]
