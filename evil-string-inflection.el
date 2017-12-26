@@ -32,7 +32,7 @@
 (require 'string-inflection)
 
 ;;;###autoload
-(evil-define-operator evil-operator-snakecamelfy (beg end _type)
+(evil-define-operator evil-operator-string-inflection (beg end _type)
   "Define a new evil operator that cicles underscore -> UPCASE -> CamelCase."
   :move-point nil
   (interactive "<R>")
@@ -41,7 +41,7 @@
       (delete-region beg end)
       (insert (string-inflection-all-cycle-function str)))))
 
-(define-key evil-normal-state-map (kbd "g~") 'evil-operator-snakecamelfy)
+(define-key evil-normal-state-map (kbd "g~") 'evil-operator-string-inflection)
 
 (provide 'evil-string-inflection)
 

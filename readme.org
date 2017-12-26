@@ -52,7 +52,7 @@ CamelCaseWord
 
 #+BEGIN_SRC emacs-lisp
   ;; it is g~ by default
-  (define-key evil-normal-state-map "gR" 'evil-operator-replace-with-char)
+  (define-key evil-normal-state-map "gR" 'evil-operator-string-inflection)
 #+END_SRC
 
 * LICENSE
