@@ -13,13 +13,10 @@ It wraps the [[https://github.com/akicho8/string-inflection][string-inflection]]
 
 * Installation
 
-place the file in your load-path and write ~(require 'evil-string-inflection)~ in your =~/.emacs.d/init.el=.
-
-# Just use [[https://melpa.org][MELPA]]. Here's an oneliner using [[https://github.com/jwiegley/use-package][use-package]]:
-
-# #+BEGIN_SRC emacs-lisp
-#   (use-package evil-string-inflection :ensure t)
-# #+END_SRC
+- Just use [[https://melpa.org][MELPA]]. Here's an oneliner using [[https://github.com/jwiegley/use-package][use-package]]:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-string-inflection :ensure t)
+#+END_SRC
 
 * Usage
 
