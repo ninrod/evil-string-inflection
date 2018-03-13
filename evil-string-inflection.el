@@ -32,6 +32,9 @@
 (require 'string-inflection)
 
 ;;;###autoload
+(autoload 'evil-string-inflection "evil-string-inflection.el"
+  "Define a new evil operator that cicles underscore -> UPCASE -> CamelCase." t)
+
 (evil-define-operator evil-operator-string-inflection (beg end _type)
   "Define a new evil operator that cicles underscore -> UPCASE -> CamelCase."
   :move-point nil
