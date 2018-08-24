@@ -9,7 +9,7 @@
 
 Evil operator to cycle text objects through camelCase, kebab-case, snake_case and UPPER_CASE.
 
-It wraps the [[https://github.com/akicho8/string-inflection][string-inflection]] package.
+It wraps the [[https://github.com/akicho8/string-inflection][string-inflection]] package. Thanks go to Akira Ikeda, [akicho8](https://github.com/akicho8), for writing this library.
 
 * Installation
 
