@@ -1,6 +1,6 @@
 emacs ?= emacs
 bemacs = $(emacs) -batch -l test/elpa.el
-LIBS = -l evil.el -l goto-chg.el -l string-inflection.el -l undo-tree.el -L . -l evil-string-inflection.el -L test -l test.el
+LIBS = -l test/elpa.el -l evil.el -l goto-chg.el -l string-inflection.el -l undo-tree.el -L . -l evil-string-inflection.el -L test -l test.el
 
 update:
 	$(emacs) -batch -l test/make-update.el
