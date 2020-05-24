@@ -16,7 +16,7 @@ install:
 
 script:
   - emacs --version
-  - script -eqc 'make; make test' > /dev/null
+  - script -eqc 'make; make update; make test' > /dev/null
 
 notifications:
   email:
