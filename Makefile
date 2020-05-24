@@ -1,16 +1,13 @@
 emacs ?= emacs
 bemacs = $(emacs) -batch -l test/elpa.el
-LIBS = -L evil -L evil/lib -l evil.el -l goto-chg.el -l undo-tree.el -L . -l evil-string-inflection.el -L test -l evil-surround-test.el
+LIBS = -l evil.el -l goto-chg.el -l string-inflection.el -l undo-tree.el -L . -l evil-string-inflection.el -L test -l test.el
 
 update:
-	$(emacs) -batch -l test/make-update.el && \
-	[ ! -d evil ] && \
-	git clone --depth 1 https://github.com/emacs-evil/evil.git
+	$(emacs) -batch -l test/make-update.el
 
 emacs:
 	$(emacs) -Q $(LIBS) \
-	--eval "(evil-mode 1)" \
-	--eval "(global-evil-surround-mode 1)"
+	--eval "(evil-mode 1)"
 
 compile: clean
 	$(bemacs) -l test/make-compile.el
