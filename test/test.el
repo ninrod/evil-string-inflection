@@ -12,6 +12,8 @@
       (".")
       "an-awesome-camel-case-word"
       (".")
+      "An_Awesome_Camel_Case_Word"
+      (".")
       "an_awesome_camel_case_word"
       (".")
       "AN_AWESOME_CAMEL_CASE_WORD"
