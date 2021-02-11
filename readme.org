@@ -52,6 +52,15 @@ CamelCaseWord
   (define-key evil-normal-state-map "gR" 'evil-operator-string-inflection)
 #+END_SRC
 
+- you can change the cycle function per buffer type, for example:
+
+#+BEGIN_SRC emacs-lisp
+
+(add-hook 'typescript-mode-hook (lambda ()
+                                  (setq evil-string-inflection-func 'string-inflection-java-style-cycle-function)))
+
+#+END_SRC
+
 * LICENSE
 
 - [[https://www.gnu.org/licenses/gpl-3.0.en.html][GNU General Public License v3]]

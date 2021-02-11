@@ -31,6 +31,11 @@
 (require 'evil)
 (require 'string-inflection)
 
+(defvar evil-string-inflection-func 'string-inflection-all-cycle-function
+  "The function to use when calling the operator.")
+
+(make-local-variable 'evil-string-inflection-func)
+
 ;;;###autoload
 (autoload 'evil-string-inflection "evil-string-inflection.el"
   "Define a new evil operator that cicles underscore -> UPCASE -> CamelCase." t)
@@ -42,7 +47,7 @@
   (let ((str (buffer-substring-no-properties beg end)))
     (save-excursion
       (delete-region beg end)
-      (insert (string-inflection-all-cycle-function str)))))
+      (insert (funcall evil-string-inflection-func str)))))
 
 (define-key evil-normal-state-map (kbd "g~") 'evil-operator-string-inflection)
 
