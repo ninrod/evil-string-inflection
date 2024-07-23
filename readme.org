@@ -1,4 +1,4 @@
-* evil-string-inflection (test)
+* evil-string-inflection (test2)
 
 [[https://travis-ci.org/ninrod/evil-string-inflection.svg?branch=master][https://travis-ci.org/ninrod/evil-string-inflection.svg?branch=master]]
 [[https://melpa.org/#/evil-string-inflection][file:https://melpa.org/packages/evil-string-inflection-badge.svg]]
